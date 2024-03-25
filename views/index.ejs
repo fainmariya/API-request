@@ -1,0 +1,73 @@
+<%- include ("partials/header.ejs") %>
+
+<div class="container">
+  <h1>Welcome to Cocktail Bar 🤟</h1>
+    
+
+  <form action="/" id="form" class="form" method="POST">
+      <select name="type" class="form-select">
+        <option value="Margarita" data-display="Select">Margarita</option>
+        <option value="Blue Margarita">Blue Margarita</option>
+        <option value="Tommy's Margarita">Tommy's Margarita</option>
+        <option value="Whitecap Margarita">Whitecap Margarita</option>
+        <option value="Strawberry Margarita">Strawberry Margarita</option>
+        <option value="Smashed Watermelon Margarita">Smashed Watermelon Margarita</option>
+      </select>
+
+      <button type="submit" class="form-submit">Go</button>
+  </form>
+
+  <section id="cards" class="cards">
+
+ <%if (locals.data) {%>
+      <article class="card-item">
+        <h2 class="card-activity">
+          <%=data.strDrink%>
+          
+        </h2> 
+        <h3>Ingredients:</h3>
+        
+        <ul id="ingridientsList">
+            <li><%=data.strIngredient1%>, <%= data.strMeasure1%></li>
+           
+            <li><%=data.strIngredient2%>,<%= data.strMeasure2%></li>
+            <li><%=data.strIngredient3%>,<%= data.strMeasure3%></li>
+            <li><%=data.strIngredient4%>,<%= data.strMeasure4%></li>
+            <li><%=data.strIngredient5%>,<%= data.strMeasure5%></li>
+            <li><%=data.strIngredient6%>,<%= data.strMeasure6%></li>
+            <li><%=data.strIngredient7%>,<%= data.strMeasure7%></li>
+            <li><%=data.strIngredient8%>,<%= data.strMeasure8%></li>
+            <li><%=data.strIngredient9%>,<%= data.strMeasure9%></li>
+            <li><%=data.strIngredient10%>,<%= data.strMeasure10%></li>
+            <li><%=data.strIngredient11%>,<%= data.strMeasure11%></li>
+            <li><%=data.strIngredient12%>,<%= data.strMeasure12%></li>
+            <li><%=data.strIngredient13%>,<%= data.strMeasure13%></li>
+          
+          </ul>
+<div class="card-info">
+          <span class="card-type">
+          <img src="<%=data.strDrinkThumb%>" width=420px>
+           
+          </span>
+          <span class="card-ingridients">
+          reciept:<%=data.strInstructions%>
+           
+          
+            
+          </span>
+        </div>
+         
+        </div>
+      </article>
+<%}%>
+<%if (locals.error) {%>
+      <div id="tag-error" class="tag-error">
+        <%=error%>
+      </div>
+<%}%>
+
+ </section>
+
+</div>
+
+<%- include ("partials/footer.ejs") %>
